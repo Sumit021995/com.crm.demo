@@ -17,7 +17,7 @@ public class PropertiesUtility {
 	 * */
 	public  String getDataFromPropertiesFile(String key) throws IOException
 	{
-		FileInputStream file = new FileInputStream(".\\src\\test\\resources\\TestData\\TestData.properties");
+		FileInputStream file = new FileInputStream(IPathUtility.propertiesPath);
 		Properties prop = new Properties();
 		prop.load(file);
 		String value = prop.getProperty(key);
