@@ -16,6 +16,8 @@ public class FetchingData {
 		System.out.println(password);
 //		WebDriver driver = new ChromeDriver();
 //		driver.get(url);
+//		String excelData = pUtility.fetchingDataFromExcelFile();
+//		System.out.println(excelData);
 	}
 
 }
