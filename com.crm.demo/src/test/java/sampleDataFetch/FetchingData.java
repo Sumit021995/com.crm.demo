@@ -2,6 +2,7 @@ package sampleDataFetch;
 
 import java.io.IOException;
 
+import genericUtility.ExcelUtility;
 import genericUtility.PropertiesUtility;
 
 public class FetchingData {
@@ -18,6 +19,9 @@ public class FetchingData {
 //		driver.get(url);
 //		String excelData = pUtility.fetchingDataFromExcelFile();
 //		System.out.println(excelData);
+		ExcelUtility eUtility = new ExcelUtility();
+		String excelData=eUtility.fetchingDataFromExcelFile("Leads", 2, 1);
+		System.out.println(excelData);
 	}
 
 }
