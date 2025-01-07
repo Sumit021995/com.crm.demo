@@ -1,14 +1,14 @@
 package sampleDataFetch;
 
-import java.io.IOException;
 import java.util.List;
 
 import genericUtility.ExcelUtility;
 import genericUtility.PropertiesUtility;
+import genericUtility.UpdatingExcelFile;
 
 public class FetchingData {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		PropertiesUtility pUtility = new PropertiesUtility();
 		String url = pUtility.getDataFromPropertiesFile("url");
 		String username = pUtility.getDataFromPropertiesFile("username");
@@ -24,8 +24,10 @@ public class FetchingData {
 		String excelData=eUtility.fetchingDataFromExcelFile("Leads", 2, 1);
 		System.out.println(excelData);
 		
-			List<String> value = eUtility.fetchingMultipleDataFromExcelFile("Animal", 1, 0);
-			System.out.println(value);
+//			List<String> value = eUtility.fetchingMultipleDataFromExcelFile("Animal", 1, 0);
+//			System.out.println(value);
+		UpdatingExcelFile uExcel = new UpdatingExcelFile();
+		uExcel.updateDataInExcelFile("Animal");
 	}
 
 }
