@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import genericUtility.PropertiesUtility;
+import objectRepo.HomePage;
+import objectRepo.LeadsPage;
 import objectRepo.LoginPage;
 
 public class UtilizeLeadsPage {
@@ -21,7 +23,11 @@ public class UtilizeLeadsPage {
 		driver.get(URL);
 		LoginPage lp = new LoginPage(driver);
 		lp.loginToApplication(UN, PWD);
-		
-		
+		HomePage hp = new HomePage(driver);
+		hp.clickOnLeadMenuBtn();
+		LeadsPage leadP=new LeadsPage(driver);
+		leadP.clickOnCreateLeadsPlusIcon();
+		leadP.verifyCreateLeadPage();
+			
 	}
 }
