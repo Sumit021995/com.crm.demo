@@ -5,7 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import objectRepo.LeadsPage;
+import genericUtility.PropertiesUtility;
 import objectRepo.LoginPage;
 
 public class UtilizeLeadsPage {
@@ -14,8 +14,13 @@ public class UtilizeLeadsPage {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
-		UtilizeLoginPage.loginToCrmApplication();
-		LeadsPage lp = new LeadsPage(driver);
+		PropertiesUtility pUtility = new PropertiesUtility();
+		String URL = pUtility.getDataFromPropertiesFile("url");
+		String UN = pUtility.getDataFromPropertiesFile("username");
+		String PWD = pUtility.getDataFromPropertiesFile("password");
+		driver.get(URL);
+		LoginPage lp = new LoginPage(driver);
+		lp.loginToApplication(UN, PWD);
 		
 		
 	}
