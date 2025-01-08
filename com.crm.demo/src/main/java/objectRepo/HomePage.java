@@ -23,15 +23,23 @@ public class HomePage {
 	public WebElement getSignOutOption() {
 		return signOutOption;
 	}
-	
+	/**
+	 * This is a Bussiness Library Method to perform click operation on LeadMenu Button from HomePage
+	 */
 	public void clickOnLeadMenuBtn()
 	{
 		getLeadMenuBtn().click();
 	}
+	/**
+	 * This is a Bussiness Library Method to perform click operation on ContactMenu Button from HomePage
+	 */
 	public void clickOnContactMenuBtn()
 	{
 		getContactMenuBtn().click();
 	}
+	/**
+	 * This is a Bussiness Library Method to perform click operation SignOut Operation
+	 */
 	public void signOutOperation(WebDriver driver)
 	{
 		Actions act =new Actions(driver);
