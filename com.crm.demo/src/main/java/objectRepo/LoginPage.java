@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+/**
+ * 
+ */
 public class LoginPage {
 	@FindBy(xpath="//input[@name='user_name']") private WebElement un;
 	@FindBy(xpath="//input[@name='user_password']") private WebElement pwd;
@@ -27,10 +29,10 @@ public class LoginPage {
 	 * @param un
 	 * @param pwd
 	 */
-	public void loginToApplication(String un,String pwd)
+	public void loginToApplication(String username,String password)
 	{
-		getUn().sendKeys(un);
-		getPwd().sendKeys(pwd);
+		getUn().sendKeys(username);
+		getPwd().sendKeys(password);
 		getSubmitBtn().click();
 	}
 	
