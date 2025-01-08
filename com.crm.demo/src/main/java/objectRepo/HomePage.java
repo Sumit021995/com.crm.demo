@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 	@FindBy(xpath="//td[@class='tabUnSelected']/a[text()='Leads']") private WebElement leadMenuBtn;
@@ -22,6 +23,10 @@ public class HomePage {
 	}
 	public WebElement getSignOutOption() {
 		return signOutOption;
+	}
+	public HomePage(WebDriver driver)
+	{
+		PageFactory.initElements(driver,this);
 	}
 	/**
 	 * This is a Bussiness Library Method to perform click operation on LeadMenu Button from HomePage
