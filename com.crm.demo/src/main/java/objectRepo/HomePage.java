@@ -1,6 +1,8 @@
 package objectRepo;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage {
@@ -30,10 +32,11 @@ public class HomePage {
 	{
 		getContactMenuBtn().click();
 	}
-	public void signOutOperation()
+	public void signOutOperation(WebDriver driver)
 	{
+		Actions act =new Actions(driver);
+		act.moveToElement(getAccountIcon()).perform();
 		getSignOutOption().click();
-		getContactMenuBtn().click();
 	}
 	
 	
