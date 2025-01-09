@@ -48,17 +48,43 @@ public class ExcelUtility {
 			Row row = sh.getRow(i);
 			for(int j=startCellIndex;j<row.getLastCellNum();j++)
 			{
-				
 				Cell cell = row.getCell(j);
 				String value = df.formatCellValue(cell);
 //				System.out.println(value);
-				data.add(value);
-				
+				data.add(value);	
 			}
-
 		}
 		return data;
 		
 	}
+	/**
+	 * 
+	 * @param sheetName
+	 * @param startRowIndex
+	 * @param startCellIndex
+	 * @return List<String>
+	 * @throws EncryptedDocumentException
+	 * @throws IOException
+	 */
+	public   List<String> fetchingMultipleDataFromExcelFileForFixedRowCrm(String sheetName,int rowIndex,int startCellIndex) throws EncryptedDocumentException, IOException
+	{
+		FileInputStream file = new FileInputStream(IPathUtility.excelFilePath);
+		Workbook wb = WorkbookFactory.create(file);
+		Sheet sh = wb.getSheet(sheetName);
+		DataFormatter df = new DataFormatter();
+		List<String> data= new ArrayList();
+		
+			Row row = sh.getRow(rowIndex);
+			for(int j=startCellIndex;j<row.getLastCellNum();j++)
+			{
+				Cell cell = row.getCell(j);
+				String value = df.formatCellValue(cell);
+				data.add(value);
+			}
+		
+			return data;
+		}
+		
+	}
 	
-}
+

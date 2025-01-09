@@ -72,7 +72,7 @@ public class CreateLeadsPage
 	public CreateLeadsPage(WebDriver driver) {
 		PageFactory.initElements(driver,this);
 	}
-	public void createContactOperation(String firstName,String lastName,String company)
+	public void createLeadOperation(String firstName,String lastName,String company)
 	{
 		getFirstNameTextField().sendKeys(firstName);
 		getLastNameTextField().sendKeys(lastName);
@@ -80,7 +80,7 @@ public class CreateLeadsPage
 		getSaveBtn().click();
 	}
 	
-	public void createContactOperation(String firstName,String lastName,String phone , String website)
+	public void createLeadOperation(String firstName,String lastName,String phone , String website)
 	{
 		getFirstNameTextField().sendKeys(firstName);
 		getLastNameTextField().sendKeys(lastName);
@@ -88,7 +88,7 @@ public class CreateLeadsPage
 		getWebsiteTextField().sendKeys(website);
 		getSaveBtn().click();
 	}
-	public void createContactOperation(String firstName,String lastName,String phone,String website,String noOfEmployee,String country,String city,String state)
+	public void createLeadOperation(String firstName,String lastName,String phone,String website,String noOfEmployee,String country,String city,String state)
 	{
 		getFirstNameTextField().sendKeys(firstName);
 		getLastNameTextField().sendKeys(lastName);

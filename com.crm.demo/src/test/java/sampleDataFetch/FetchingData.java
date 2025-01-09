@@ -23,11 +23,15 @@ public class FetchingData {
 		ExcelUtility eUtility = new ExcelUtility();
 		String excelData=eUtility.fetchingDataFromExcelFile("Leads", 2, 1);
 		System.out.println(excelData);
+
+		List<String> value = eUtility.fetchingMultipleDataFromExcelFile("Animal", 1, 0);
+		System.out.println(value);
+		List<String> singleRowvalue = eUtility.fetchingMultipleDataFromExcelFileForFixedRowCrm("Leads",2, 1);
+		System.out.println(singleRowvalue);
+			
+//		UpdatingExcelFile uExcel = new UpdatingExcelFile();
+//		uExcel.updateDataInExcelFile("Animal");
 		
-//			List<String> value = eUtility.fetchingMultipleDataFromExcelFile("Animal", 1, 0);
-//			System.out.println(value);
-		UpdatingExcelFile uExcel = new UpdatingExcelFile();
-		uExcel.updateDataInExcelFile("Animal");
 	}
 
 }
