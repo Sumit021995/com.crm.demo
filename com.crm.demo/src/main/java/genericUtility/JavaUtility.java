@@ -5,6 +5,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+/**
+ * This is utility class which contains java related generic methods
+ */
 public class JavaUtility {
 	/**
 	 * This is a generic method to generate random number
