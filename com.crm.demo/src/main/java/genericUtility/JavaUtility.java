@@ -17,6 +17,11 @@ public class JavaUtility {
 		int num = r.nextInt(bound);
 		return num;
 	}
+	/**
+	 * This is a generic method to generate Calander detailes 
+	 * @param format
+	 * @return
+	 */
 	public String  getCalanderDetails(String format)
 	{
 		Calendar cal = Calendar.getInstance();
