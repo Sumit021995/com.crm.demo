@@ -43,15 +43,28 @@ public class CreateContactsPage {
 	public CreateContactsPage(WebDriver driver) {
 		PageFactory.initElements(driver,this);
 	}
-	public void createContactOperation(String firstName,String lastName,String email,String city,String state,String value)
+	public void createContactOperation(String firstName,String lastName,String email)
+	{
+		getFirstNameTextField().sendKeys(firstName);
+		getLastNameTextField().sendKeys(lastName);
+		getEmailTextField().sendKeys(email);
+		getSaveBtn().click();
+	}
+	public void createContactOperation(String firstName,String lastName,String title , String email)
+	{
+		getFirstNameTextField().sendKeys(firstName);
+		getLastNameTextField().sendKeys(lastName);
+		getEmailTextField().sendKeys(email);
+		getTitleTextField().sendKeys(title);
+		getSaveBtn().click();
+	}
+	public void createContactOperation(String firstName,String lastName,String title,String email , String city,String state)
 	{
 		getFirstNameTextField().sendKeys(firstName);
 		getLastNameTextField().sendKeys(lastName);
 		getEmailTextField().sendKeys(email);
 		getMailingCityTextField().sendKeys(city);
 		getMailingStateTextField().sendKeys(state);
-		Select s = new Select(getLeadsourceDropdown());
-		s.selectByValue(value);
 		getSaveBtn().click();
 	}
 	
