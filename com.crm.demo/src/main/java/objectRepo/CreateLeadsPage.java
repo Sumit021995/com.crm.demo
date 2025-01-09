@@ -6,10 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class CreateContactsPage {
+public class CreateLeadsPage {
 	@FindBy(xpath="//input[@name='firstname']") private WebElement firstNameTextField;
 	@FindBy(xpath="//input[@name='lastname']") private WebElement lastNameTextField;
-	@FindBy(xpath="//input[@name='leadsource']") private WebElement leadsourceDropdown;
+	@FindBy(xpath="//input[@name='company']") private WebElement companyTextField;
 	@FindBy(id="email") private WebElement emailTextField;
 	@FindBy(xpath="//input[@name='firstname']") private WebElement titleTextField;
 	@FindBy(xpath="//input[@name='mailingcity']") private WebElement mailingCityTextField;
@@ -23,7 +23,7 @@ public class CreateContactsPage {
 		return lastNameTextField;
 	}
 	public WebElement getLeadsourceDropdown() {
-		return leadsourceDropdown;
+		return companyTextField;
 	}
 	public WebElement getEmailTextField() {
 		return emailTextField;
@@ -40,7 +40,7 @@ public class CreateContactsPage {
 	public WebElement getSaveBtn() {
 		return saveBtn;
 	}
-	public CreateContactsPage(WebDriver driver) {
+	public CreateLeadsPage(WebDriver driver) {
 		PageFactory.initElements(driver,this);
 	}
 	public void createContactOperation(String firstName,String lastName,String leadSourceValue)
@@ -72,3 +72,4 @@ public class CreateContactsPage {
 	
 	
 }
+
