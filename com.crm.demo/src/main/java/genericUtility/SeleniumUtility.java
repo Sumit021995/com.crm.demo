@@ -59,5 +59,15 @@ public class SeleniumUtility {
 		Select s = new Select(dropDownElement);
 		s.selectByValue(attributeValue);
 	}
+	/**
+	 * This is the generic method to select an option from dropdown based on visible text
+	 * @param dropDownElement
+	 * @param visibleText
+	 */
+	public void selectOptionUsinVisibleText(WebElement dropDownElement, String visibleText)
+	{
+		Select s = new Select(dropDownElement);
+		s.selectByVisibleText(visibleText);
+	}
 	
 }
