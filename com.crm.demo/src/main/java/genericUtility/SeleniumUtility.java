@@ -49,5 +49,15 @@ public class SeleniumUtility {
 		Select s = new Select(dropDownElement);
 		s.selectByIndex(index);
 	}
+	/**
+	 * This is the generic method to select an option from dropdown based on attribute value
+	 * @param dropDownElement
+	 * @param attributeValue
+	 */
+	public void selectOptionUsinValue(WebElement dropDownElement, String attributeValue)
+	{
+		Select s = new Select(dropDownElement);
+		s.selectByValue(attributeValue);
+	}
 	
 }
