@@ -1,8 +1,11 @@
 package objectRepo;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -11,7 +14,7 @@ public class HomePage {
 	@FindBy(xpath="//td[@class='tabUnSelected']/a[text()='Contacts']") private WebElement contactMenuBtn;
 	@FindBy(xpath="//img[@src='themes/softed/images/user.PNG']") private WebElement AccountIcon;
 	@FindBy(xpath="//a[text()='Sign Out']") private WebElement signOutOption;
-	
+//	@FindAll({@FindBy(xpath="//td[@class='tabUnSelected']/a[text()='Leads']"),@FindBy(xpath="//td[@class='tabUnSelected']/a[text()='Contacts']")}) WebElement ele;	
 	public WebElement getLeadMenuBtn() {
 		return leadMenuBtn;
 	}
