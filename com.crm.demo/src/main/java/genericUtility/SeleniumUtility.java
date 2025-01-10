@@ -103,5 +103,15 @@ public class SeleniumUtility {
 		return driver.switchTo().alert().getText();
 		
 	}
+	/**
+	 * This is a generic method to pass value to alert popup
+	 * @param driver
+	 * @param vlaue
+	 */
+	public void passValueToAlert(WebDriver driver,String vlaue)
+	{
+		 driver.switchTo().alert().sendKeys(vlaue);	
+	}
 	
+	////////////******Handling Mouse Actions*******/////////////
 }
