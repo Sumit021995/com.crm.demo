@@ -2,6 +2,7 @@ package genericUtility;
 
 import java.time.Duration;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -39,6 +40,8 @@ public class SeleniumUtility {
 	{
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(maxTime));
 	}
+	
+	////////////******Handling Dropdowns*******/////////////
 	/**
 	 * This is the generic method to select an option from dropdown based on index
 	 * @param dropDownElement
@@ -68,6 +71,37 @@ public class SeleniumUtility {
 	{
 		Select s = new Select(dropDownElement);
 		s.selectByVisibleText(visibleText);
+	}
+	
+	////////////******Handling Alerts*******/////////////
+	
+	/**
+	 * This is a  generic method to accept the alert popup
+	 * @param driver
+	 */
+	public void acceptAlert(WebDriver driver)
+	{
+		driver.switchTo().alert().accept();
+		
+	}
+	/**
+	 * This is a  generic method to dismiss the alert popup
+	 * @param driver
+	 */
+	public void dismisAlert(WebDriver driver)
+	{
+		driver.switchTo().alert().dismiss();
+		
+	}
+	/**
+	 * This is a  generic method to get text value of  the alert popup
+	 * @param driver
+	 * @return String
+	 */
+	public String getAlertMessage(WebDriver driver)
+	{
+		return driver.switchTo().alert().getText();
+		
 	}
 	
 }
