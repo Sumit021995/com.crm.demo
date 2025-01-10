@@ -131,6 +131,7 @@ public class SeleniumUtility {
 		Actions act = new Actions(driver);
 		act.moveToElement(element).perform();
 	}
+	
 	/**
 	 * This is a generic method to perform mouse click action on a WebElement
 	 * @param driver
@@ -141,6 +142,7 @@ public class SeleniumUtility {
 		Actions act = new Actions(driver);
 		act.click(element).perform();
 	}
+	
 	/**
 	 * This is a generic method to perform mouse hovering action on a WebElement
 	 * @param driver
@@ -151,6 +153,7 @@ public class SeleniumUtility {
 		Actions act = new Actions(driver);
 		act.moveToElement(element).perform();
 	}
+	
 	////////////******Handling Frames*******/////////////
 	
 	/**
@@ -181,6 +184,7 @@ public class SeleniumUtility {
 	{
 		driver.switchTo().frame(frameElement);
 	}
+	
 	////////////******Handling Screenshot*******/////////////
 	
 	/**
