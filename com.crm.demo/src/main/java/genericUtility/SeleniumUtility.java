@@ -2,9 +2,9 @@ package genericUtility;
 
 import java.time.Duration;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -114,4 +114,65 @@ public class SeleniumUtility {
 	}
 	
 	////////////******Handling Mouse Actions*******/////////////
+	
+	/**
+	 * This is a generic method to perform mouse hovering action on a WebElement
+	 * @param driver
+	 * @param element
+	 */
+	public void mouseHoveringAction(WebDriver driver,WebElement element)
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(element).perform();
+	}
+	/**
+	 * This is a generic method to perform mouse click action on a WebElement
+	 * @param driver
+	 * @param element
+	 */
+	public void mouseClickAction(WebDriver driver,WebElement element)
+	{
+		Actions act = new Actions(driver);
+		act.click(element).perform();
+	}
+	/**
+	 * This is a generic method to perform mouse hovering action on a WebElement
+	 * @param driver
+	 * @param element
+	 */
+	public void mouseDoubleClickAction(WebDriver driver,WebElement element)
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(element).perform();
+	}
+	////////////******Handling Frames*******/////////////
+	
+	/**
+	 * This is a generic method to switch to a frame using index
+	 * @param driver
+	 * @param index
+	 */
+	public void switchToFrameUsingIndex(WebDriver driver,int index)
+	{
+		driver.switchTo().frame(index);
+	}
+	
+	/**
+	 * This is a generic method to switch to a frame using name or id attribute
+	 * @param driver
+	 * @param is nameOrIdAttribute
+	 */
+	public void switchToFrameUsingNameOrId(WebDriver driver,String nameOrIdAttribute)
+	{
+		driver.switchTo().frame(nameOrIdAttribute);
+	}
+	/**
+	 * This is a generic method to switch to a frame using frame WebElement
+	 * @param driver
+	 * @param is frameElement
+	 */
+	public void switchToFrameUsingWebElement(WebDriver driver,WebElement frameElement)
+	{
+		driver.switchTo().frame(frameElement);
+	}
 }
