@@ -72,7 +72,7 @@ public class Practice
 //		WebElement priceText = driver.findElement(By.xpath("//span[@class='LAlF6k re6bBo']"));
 	
 		System.out.println(p.productPrice.getText());
-		
+		driver.quit();
 		
 		
 		
