@@ -56,6 +56,8 @@ public class Practice
 		Thread.sleep(2000);
 //		WebElement product = driver.findElement(By.xpath("//span[@class='VU-ZEz']"));
 		String productName = p.productName.getText();
+		System.out.println(productName);
+		System.out.println("+++++++++++");
 		Thread.sleep(2000);
 //		WebElement addToCart = driver.findElement(By.xpath("//button[@class='QqFHMw vslbG+ In9uk2']"));
 		act.moveToElement(p.addToCartButton).click().perform();
