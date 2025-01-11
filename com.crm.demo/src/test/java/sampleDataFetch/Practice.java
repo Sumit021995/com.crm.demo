@@ -17,6 +17,11 @@ public class Practice
 	@FindBy(xpath="//span[text()='Electronics']")  WebElement electronicText;
 	@FindBy(xpath="//a[text()='Cameras & Accessories']")  WebElement cameraIcon;
 	@FindBy(xpath="//a[text()='All']")  WebElement allText;
+	@FindBy(xpath="//div[@class='kv0tEm']")  WebElement firstProduct;
+	@FindBy(xpath="//span[@class='VU-ZEz']")  WebElement productName;
+	@FindBy(xpath="//button[@class='QqFHMw vslbG+ In9uk2']")  WebElement addToCartButton;
+	@FindBy(xpath="//a[@class='T2CNXf QqLTQ-']")  WebElement productAtCart;
+	@FindBy(xpath="//span[@class='LAlF6k re6bBo']")  WebElement productPrice;
 //	
 	public Practice(WebDriver driver)
 	{
@@ -25,6 +30,7 @@ public class Practice
 	public static void main(String[] args) throws Exception
 	{
 		WebDriver driver = new ChromeDriver();
+		Practice p = new Practice(driver);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get("https://www.flipkart.com/");
 		WebElement electronicText = driver.findElement(By.xpath("//span[text()='Electronics']"));
