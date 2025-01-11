@@ -9,13 +9,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class Practice 
 {
-//	@FindBy(xpath="//span[text()='Electronics']") static WebElement electronicText;
-//	@FindBy(xpath="//a[text()='Cameras & Accessories']") static WebElement cameraIcon;
-//	@FindBy(xpath="//a[text()='All']") static WebElement allText;
+	@FindBy(xpath="//span[text()='Electronics']")  WebElement electronicText;
+	@FindBy(xpath="//a[text()='Cameras & Accessories']")  WebElement cameraIcon;
+	@FindBy(xpath="//a[text()='All']")  WebElement allText;
 //	
+	public Practice(WebDriver driver)
+	{
+		PageFactory.initElements(driver,this);;
+	}
 	public static void main(String[] args) throws Exception
 	{
 		WebDriver driver = new ChromeDriver();
