@@ -67,7 +67,7 @@ public class Practice
 		{
 			System.out.println("Validated True");
 		}
-		WebElement priceText = driver.findElement(By.xpath("//span[@class='LAlF6k re6bBo']"));
+//		WebElement priceText = driver.findElement(By.xpath("//span[@class='LAlF6k re6bBo']"));
 	
 		System.out.println(priceText.getText());
 		
