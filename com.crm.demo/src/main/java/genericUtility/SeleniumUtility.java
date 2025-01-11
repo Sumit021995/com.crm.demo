@@ -3,11 +3,11 @@ package genericUtility;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Set;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver.Options;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -203,6 +203,26 @@ public class SeleniumUtility {
 		Files.copy(file, location);
 		return location.getAbsolutePath(); // used in Listeners
 
+	}
+	////////////******Handling Window*******/////////////
+	
+	/**
+	 * This is a generic method to switch a driver to new generated Window
+	 * @param driver
+	 */
+	public void switchToNewWindow(WebDriver driver)
+	{
+		String parentId= driver.getWindowHandle();
+		Set<String> ids=driver.getWindowHandles();
+		for(String s:ids)
+		{
+			if(!s.equals(parentId))
+			{
+				driver.switchTo().window(s);
+			}
+		}
+		
+		
 	}
 	
 }
