@@ -31,19 +31,21 @@ public class Practice
 	{
 		WebDriver driver = new ChromeDriver();
 		Practice p = new Practice(driver);
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get("https://www.flipkart.com/");
-		WebElement electronicText = driver.findElement(By.xpath("//span[text()='Electronics']"));
+//		WebElement electronicText = driver.findElement(By.xpath("//span[text()='Electronics']"));
 		Thread.sleep(2000);
 		Actions act = new Actions(driver);
-		act.moveToElement(electronicText).perform();
-		WebElement cameraIcon = driver.findElement(By.xpath("//a[text()='Cameras & Accessories']"));
-		act.moveToElement(cameraIcon).perform();
-		WebElement allText = driver.findElement(By.xpath("//a[text()='All']"));
-		act.moveToElement(allText).click().perform();
+		act.moveToElement(p.electronicText).perform();
+//		WebElement cameraIcon = driver.findElement(By.xpath("//a[text()='Cameras & Accessories']"));
+		act.moveToElement(p.cameraIcon).perform();
+//		WebElement allText = driver.findElement(By.xpath("//a[text()='All']"));
+		act.moveToElement(p.allText).click().perform();
 		Thread.sleep(2000);
 		String parentId = driver.getWindowHandle();
-		driver.findElement(By.xpath("//div[@class='kv0tEm']")).click();
+//		driver.findElement(By.xpath("//div[@class='kv0tEm']"))
+		p.firstProduct.click();
 		Thread.sleep(2000);
 		Set<String> ids=driver.getWindowHandles();
 		for(String s : ids)
@@ -52,14 +54,15 @@ public class Practice
 				driver.switchTo().window(s);
 		}
 		Thread.sleep(2000);
-		WebElement product = driver.findElement(By.xpath("//span[@class='VU-ZEz']"));
-		String productName = product.getText();
+//		WebElement product = driver.findElement(By.xpath("//span[@class='VU-ZEz']"));
+		String productName = p.productName.getText();
 		Thread.sleep(2000);
-		WebElement addToCart = driver.findElement(By.xpath("//button[@class='QqFHMw vslbG+ In9uk2']"));
-		act.moveToElement(addToCart).click().perform();
-		WebElement text = driver.findElement(By.xpath("//a[@class='T2CNXf QqLTQ-']"));
+//		WebElement addToCart = driver.findElement(By.xpath("//button[@class='QqFHMw vslbG+ In9uk2']"));
+		act.moveToElement(p.addToCartButton).click().perform();
+//		WebElement text = driver.findElement(By.xpath("//a[@class='T2CNXf QqLTQ-']"));
 		Thread.sleep(2000);
-		String value = text.getText();
+		String value = p.productAtCart.getText();
+		System.out.println(value);
 		if(value.contains(productName))
 		{
 			System.out.println("Validated True");
