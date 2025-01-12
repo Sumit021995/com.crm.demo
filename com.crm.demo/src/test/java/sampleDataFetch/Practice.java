@@ -65,7 +65,7 @@ public class Practice
 		Thread.sleep(2000);
 		String value = p.productAtCart.getText();
 		System.out.println(value);
-		if(value.toString().contains(productName.toString()))
+		if(productName.contains(value))
 		{
 			System.out.println("Validated True");
 		}
