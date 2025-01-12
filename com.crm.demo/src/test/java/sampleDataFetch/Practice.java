@@ -1,11 +1,11 @@
 package sampleDataFetch;
 
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Calendar;
-import java.util.Set;
+import java.util.Date;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -78,7 +78,11 @@ public class Practice
 	
 		System.out.println(p.productPrice.getText());
 		Calendar cal= Calendar.getInstance();
-		su.getWebPageScreenshot(driver, value);
+		Date d = cal.getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YY");
+		String dateTimeStamp = sdf.format(d);
+		su.getWebPageScreenshot(driver, dateTimeStamp);
+		Thread.sleep(2000);
 		driver.quit();
 		
 		
