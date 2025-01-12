@@ -25,7 +25,7 @@ public class Practice
 //	
 	public Practice(WebDriver driver)
 	{
-		PageFactory.initElements(driver,this);;
+		PageFactory.initElements(driver,this);
 	}
 	public static void main(String[] args) throws Exception
 	{
