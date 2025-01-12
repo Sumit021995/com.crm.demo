@@ -24,6 +24,7 @@ public class Practice
 	@FindBy(xpath="//span[@class='VU-ZEz']")  WebElement productName;
 	@FindBy(xpath="//button[@class='QqFHMw vslbG+ In9uk2']")  WebElement addToCartButton;
 	@FindBy(xpath="//a[@class='T2CNXf QqLTQ-']")  WebElement productAtCart;
+	@FindBy(xpath="//*[name()='svg' and@class='KRzcNw']")  WebElement productAtCartSvg;
 	@FindBy(xpath="//span[@class='LAlF6k re6bBo']")  WebElement productPrice;
 //	
 	public Practice(WebDriver driver)
@@ -65,7 +66,7 @@ public class Practice
 		System.out.println("+++++++++++");
 		Thread.sleep(2000);
 //		WebElement addToCart = driver.findElement(By.xpath("//button[@class='QqFHMw vslbG+ In9uk2']"));
-		act.moveToElement(p.addToCartButton).click().perform();
+		act.moveToElement(p.productAtCartSvg).click().perform();
 //		WebElement text = driver.findElement(By.xpath("//a[@class='T2CNXf QqLTQ-']"));
 		Thread.sleep(2000);
 		String value = p.productAtCart.getText();
