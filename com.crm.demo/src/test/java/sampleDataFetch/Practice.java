@@ -12,6 +12,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import genericUtility.SeleniumUtility;
+
 public class Practice 
 {
 	@FindBy(xpath="//span[text()='Electronics']")  WebElement electronicText;
@@ -47,12 +49,14 @@ public class Practice
 //		driver.findElement(By.xpath("//div[@class='kv0tEm']"))
 		p.firstProduct.click();
 		Thread.sleep(2000);
-		Set<String> ids=driver.getWindowHandles();
-		for(String s : ids)
-		{
-			if(!parentId.equals(s))
-				driver.switchTo().window(s);
-		}
+		SeleniumUtility su = new SeleniumUtility();
+		su.switchToNewWindow(driver);
+//		Set<String> ids=driver.getWindowHandles();
+//		for(String s : ids)
+//		{
+//			if(!parentId.equals(s))
+//				driver.switchTo().window(s);
+//		}
 		Thread.sleep(2000);
 //		WebElement product = driver.findElement(By.xpath("//span[@class='VU-ZEz']"));
 		String productName = p.productName.getText();
@@ -72,6 +76,7 @@ public class Practice
 //		WebElement priceText = driver.findElement(By.xpath("//span[@class='LAlF6k re6bBo']"));
 	
 		System.out.println(p.productPrice.getText());
+		
 		driver.quit();
 		
 		
