@@ -2,6 +2,7 @@ package sampleDataFetch;
 
 
 import java.time.Duration;
+import java.util.Calendar;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -76,7 +77,8 @@ public class Practice
 //		WebElement priceText = driver.findElement(By.xpath("//span[@class='LAlF6k re6bBo']"));
 	
 		System.out.println(p.productPrice.getText());
-		
+		Calendar cal= Calendar.getInstance();
+		su.getWebPageScreenshot(driver, value);
 		driver.quit();
 		
 		
