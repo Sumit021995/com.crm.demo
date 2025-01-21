@@ -1,10 +1,10 @@
 package genericUtility;
 
 public class BaseClass {
-//	@BeforeSuite
-//	@BeforeClass
+	@BeforeSuit
 	public void connectToDatabase()
 	{
 		System.out.println("Database Connected");
 	}
+	@BeforeClass
 }
