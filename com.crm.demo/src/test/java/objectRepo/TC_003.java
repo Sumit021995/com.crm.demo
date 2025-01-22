@@ -2,9 +2,7 @@ package objectRepo;
 
 import org.testng.annotations.Test;
 
-import PomClassesRepo.CreatingNewLeadPage;
-import PomClassesRepo.HomePage;
-import PomClassesRepo.LeadsPage;
+import objectRepo.CreateLeadsPage;
 import genericUtility.BaseClass;
 import genericUtility.ExcelUtility;
 
