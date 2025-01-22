@@ -1,4 +1,4 @@
-package TC_Repo;
+package objectRepo;
 
 import org.testng.annotations.Test;
 
