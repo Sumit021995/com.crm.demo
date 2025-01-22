@@ -3,10 +3,11 @@ package TC_Repo;
 import org.testng.annotations.Test;
 
 import PomClassesRepo.CreatingNewLeadPage;
-import PomClassesRepo.HomePage;
-import PomClassesRepo.LeadsPage;
 import genericUtility.BaseClass;
 import genericUtility.ExcelUtility;
+import objectRepo.CreateLeadsPage;
+import objectRepo.HomePage;
+import objectRepo.LeadsPage;
 
 public class TC_002 extends BaseClass
 {
@@ -15,20 +16,20 @@ public class TC_002 extends BaseClass
 	{
 		System.out.println("Test Execution started");
 		HomePage hp=new HomePage(driver);
-		hp.clickOnLeadsMenu();
+		hp.clickOnLeadMenuBtn();
 		
 		LeadsPage lp=new LeadsPage(driver);
-		lp.clickOnLeadsContactButton();
+		lp.clickOnCreateLeadsPlusIcon();
 		
 		ExcelUtility eUtil=new ExcelUtility();
-		String fName=eUtil.getDataFromExcel("Leads", 5, 1);
-		String lName=eUtil.getDataFromExcel("Leads", 5, 2);
-		String company=eUtil.getDataFromExcel("Leads", 5, 3);
-		String phone=eUtil.getDataFromExcel("Leads", 5, 4);
-		String website=eUtil.getDataFromExcel("Leads", 5, 5);
+		String fName=eUtil.fetchingDataFromExcelFile("Leads", 5, 1);
+		String lName=eUtil.fetchingDataFromExcelFile("Leads", 5, 2);
+		String company=eUtil.fetchingDataFromExcelFile("Leads", 5, 3);
+		String phone=eUtil.fetchingDataFromExcelFile("Leads", 5, 4);
+		String website=eUtil.fetchingDataFromExcelFile("Leads", 5, 5);
 	
-		CreatingNewLeadPage cnlp=new CreatingNewLeadPage(driver);
-		cnlp.createNewLead(fName, lName,company, phone, website);
+		CreateLeadsPage cnlp=new CreateLeadsPage(driver);
+		cnlp.createLeadOperation(lName, fName, phone, website, lName, company, phone, website);
 		System.out.println("Test Execution Ended");
 	}
 
