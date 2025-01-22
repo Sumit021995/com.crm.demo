@@ -2,7 +2,7 @@ package objectRepo;
 
 import org.testng.annotations.Test;
 
-import PomClassesRepo.CreatingNewLeadPage;
+import objectRepo.*;
 import genericUtility.BaseClass;
 import genericUtility.ExcelUtility;
 import objectRepo.CreateLeadsPage;
@@ -24,12 +24,15 @@ public class TC_002 extends BaseClass
 		ExcelUtility eUtil=new ExcelUtility();
 		String fName=eUtil.fetchingDataFromExcelFile("Leads", 5, 1);
 		String lName=eUtil.fetchingDataFromExcelFile("Leads", 5, 2);
-		String company=eUtil.fetchingDataFromExcelFile("Leads", 5, 3);
-		String phone=eUtil.fetchingDataFromExcelFile("Leads", 5, 4);
-		String website=eUtil.fetchingDataFromExcelFile("Leads", 5, 5);
+		String phone=eUtil.fetchingDataFromExcelFile("Leads", 5, 3);
+		String noOfEmployee=eUtil.fetchingDataFromExcelFile("Leads", 5, 5);
+		String country=eUtil.fetchingDataFromExcelFile("Leads", 5, 6);
+		String city=eUtil.fetchingDataFromExcelFile("Leads", 5, 7);
+		String state=eUtil.fetchingDataFromExcelFile("Leads", 5, 8);
+		String website=eUtil.fetchingDataFromExcelFile("Leads", 5, 4);
 	
 		CreateLeadsPage cnlp=new CreateLeadsPage(driver);
-		cnlp.createLeadOperation(lName, fName, phone, website, lName, company, phone, website);
+		cnlp.createLeadOperation(fName,lName, phone, website,noOfEmployee,country, city, state);
 		System.out.println("Test Execution Ended");
 	}
 
