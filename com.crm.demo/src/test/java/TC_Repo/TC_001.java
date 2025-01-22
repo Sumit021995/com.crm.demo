@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import genericUtility.BaseClass;
 import genericUtility.ExcelUtility;
+import objectRepo.CreateLeadsPage;
 import objectRepo.HomePage;
 import objectRepo.LeadsPage;
 
@@ -14,16 +15,17 @@ public class TC_001 extends BaseClass
 	{
 		System.out.println("Test Exceution Started");
 		HomePage hp=new HomePage(driver);
-		hp.clickOnLeadsMenu();
+		hp.clickOnLeadMenuBtn();
 	
 		LeadsPage lp=new LeadsPage(driver);
-		lp.clickOnLeadsContactButton();
+		lp.clickOnCreateLeadsPlusIcon();
 	
 		ExcelUtility eUtil=new ExcelUtility();
-		String lName=eUtil.getDataFromExcel("Leads", 2, 1);
-		String company=eUtil.getDataFromExcel("Leads", 2, 2);
-		CreatingNewLeadPage cnlp=new CreatingNewLeadPage(driver);
-		cnlp.createNewLead(lName,company);
+		String fName=eUtil.fetchingDataFromExcelFile("Leads", 2, 1);
+		String lName=eUtil.fetchingDataFromExcelFile("Leads", 2, 2);
+		String company=eUtil.fetchingDataFromExcelFile("Leads", 2, 3);
+		CreateLeadsPage cnlp=new CreateLeadsPage(driver);
+		cnlp.createLeadOperation(fName,lName,company);
 		System.out.println("Test Execution Ended");
 	}
 }
