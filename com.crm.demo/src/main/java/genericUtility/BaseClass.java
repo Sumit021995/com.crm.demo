@@ -3,14 +3,19 @@ package genericUtility;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
-import objectRepo.*;
+import objectRepo.HomePage;
+import objectRepo.LoginPage;
 
 
 public class BaseClass 
@@ -25,10 +30,18 @@ public class BaseClass
 	{
 		System.out.println("Database connected");
 	}
+	@Parameters("browser")
 	@BeforeClass
-	public void launchBrowser() throws Exception
+	public void launchBrowser(@Optional("chrome") String bname) throws Exception
 	{
-		driver=new ChromeDriver();
+		if(bname.equalsIgnoreCase("chrome"))
+			driver=new ChromeDriver();
+		else if(bname.equalsIgnoreCase("firefox"))
+			driver=new FirefoxDriver();
+		else if(bname.equalsIgnoreCase("edge"))
+			driver=new EdgeDriver();
+			
+		
 		sUtil.maximizeWindow(driver);
 		sUtil.implicitWait(driver,15);
 		String URl=pUtil.getDataFromPropertiesFile("url");
