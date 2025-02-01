@@ -1,4 +1,4 @@
-package testCaseRepo;
+package tcRepo;
 
 import org.testng.annotations.Test;
 

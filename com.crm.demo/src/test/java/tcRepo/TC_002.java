@@ -1,4 +1,4 @@
-package testCaseRepo;
+package tcRepo;
 
 import org.testng.annotations.Test;
 
@@ -7,7 +7,7 @@ import genericUtility.ExcelUtility;
 import objectRepo.CreateLeadsPage;
 import objectRepo.HomePage;
 import objectRepo.LeadsPage;
-import testCaseRepo.*;
+import tcRepo.*;
 
 public class TC_002 extends BaseClass
 {
