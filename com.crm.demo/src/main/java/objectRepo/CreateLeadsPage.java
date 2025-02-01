@@ -18,7 +18,7 @@ public class CreateLeadsPage
 	@FindBy(id="state") private WebElement stateTextField;
 	@FindBy(id="country") private WebElement countryTextField;
 	@FindBy(xpath="//select[@name='leadsource']") private WebElement leadSourceDropDown;
-	@FindBy(xpath="//select[@name='website']") private WebElement websiteTextField;
+	@FindBy(xpath="//input[@name='website']") private WebElement websiteTextField;
 	@FindBy(xpath="//input[@name='industry']") private WebElement industryDropDown;
 	@FindBy(xpath="//input[@name='annualrevenue']") private WebElement annualrevenueNumTextField;
 	@FindBy(xpath="//input[@name='noofemployees']") private WebElement noOfEmployeesTextField;
