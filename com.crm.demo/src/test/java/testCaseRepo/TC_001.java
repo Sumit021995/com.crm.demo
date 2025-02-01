@@ -1,4 +1,4 @@
-package objectRepo;
+package testCaseRepo;
 
 import org.testng.annotations.Test;
 

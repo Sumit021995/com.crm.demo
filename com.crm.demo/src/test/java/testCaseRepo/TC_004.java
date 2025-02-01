@@ -1,9 +1,12 @@
-package objectRepo;
+package testCaseRepo;
 
 import org.testng.annotations.Test;
 
 import genericUtility.BaseClass;
 import genericUtility.ExcelUtility;
+import objectRepo.ContactsPage;
+import objectRepo.CreateContactsPage;
+import objectRepo.HomePage;
 
 public class TC_004 extends BaseClass
 {

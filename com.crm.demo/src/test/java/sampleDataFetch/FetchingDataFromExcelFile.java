@@ -12,8 +12,8 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 public class FetchingDataFromExcelFile 
 {
 	public static void main(String[] args) throws Exception {
-		FileInputStream fil = new FileInputStream(".\\src\\test\\resources\\TestData\\Module.xlsx");
-		Workbook wb = WorkbookFactory.create(fil);
+		FileInputStream file = new FileInputStream(".\\src\\test\\resources\\TestData\\Module.xlsx");
+		Workbook wb = WorkbookFactory.create(file);
 		Sheet sh = wb.getSheet("Animal");
 		Row row = sh.getRow(3);
 		Cell cell = row.getCell(1);

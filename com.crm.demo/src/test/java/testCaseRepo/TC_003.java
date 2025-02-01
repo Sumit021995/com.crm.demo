@@ -1,8 +1,10 @@
-package objectRepo;
+package testCaseRepo;
 
 import org.testng.annotations.Test;
 
 import objectRepo.CreateLeadsPage;
+import objectRepo.HomePage;
+import objectRepo.LeadsPage;
 import genericUtility.BaseClass;
 import genericUtility.ExcelUtility;
 
