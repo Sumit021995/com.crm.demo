@@ -31,7 +31,7 @@ public class BaseClass
 		System.out.println("Database connected");
 	}
 	@Parameters("browser")
-	@BeforeClass
+	@BeforeClass(alwaysRun=true)
 	public void launchBrowser(@Optional("chrome") String bname) throws Exception
 	{
 		if(bname.equalsIgnoreCase("chrome"))
