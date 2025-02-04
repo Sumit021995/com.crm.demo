@@ -43,6 +43,8 @@ public class BaseClass
 			driver=new EdgeDriver();
 		else if(bname.equalsIgnoreCase("safari"))
 			driver=new SafariDriver();
+		else
+			driver = new ChromeDriver();
 			
 		
 		sUtil.maximizeWindow(driver);
