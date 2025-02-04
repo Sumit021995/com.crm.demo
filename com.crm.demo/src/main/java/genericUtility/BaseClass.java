@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -40,6 +41,8 @@ public class BaseClass
 			driver=new FirefoxDriver();
 		else if(bname.equalsIgnoreCase("edge"))
 			driver=new EdgeDriver();
+		else if(bname.equalsIgnoreCase("safari"))
+			driver=new SafariDriver();
 			
 		
 		sUtil.maximizeWindow(driver);
