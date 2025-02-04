@@ -46,7 +46,6 @@ public class BaseClass
 		else
 			driver = new ChromeDriver();
 			
-		
 		sUtil.maximizeWindow(driver);
 		sUtil.implicitWait(driver,15);
 		String URl=pUtil.getDataFromPropertiesFile("url");
