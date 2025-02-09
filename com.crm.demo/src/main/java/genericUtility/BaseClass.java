@@ -59,7 +59,7 @@ public class BaseClass {
 		sUtil.implicitWait(driver, 15);
 		sUtil.maximizeWindow(driver);
 		String URL=pUtil.getDataFromPropertiesFile("url");
-		sUtil.navigateToUrl(driver, URL);
+		sUtil.accesToApplication(driver, URL);
 		System.out.println("Browser launched successfully");
 	}
 	
