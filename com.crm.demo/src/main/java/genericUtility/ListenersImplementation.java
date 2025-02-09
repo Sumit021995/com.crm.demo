@@ -38,7 +38,7 @@ public class ListenersImplementation implements ITestListener{
 		String methodName=result.getMethod().getMethodName();
 		System.out.println(methodName+" execution passed");
 		
-		test.log(Status.PASS, methodName+" execution passed");
+		test.log(Status.PASS , methodName+" execution passed");
 	}
 
 	@Override
@@ -46,14 +46,14 @@ public class ListenersImplementation implements ITestListener{
 		String methodName=result.getMethod().getMethodName();
 		System.out.println(methodName+" execution failed");
 		
-		test.log(Status.FAIL, methodName+" execution failed");
+		report.log(Status.FAIL, methodName+" execution failed");
 		
 		//capturing the screenshot of test script getting failed and attaching to report
 		
 		SeleniumUtility sUtil=new SeleniumUtility();
 		String screenshotName=methodName+dateTimeStamp;
 		try {
-			String path=sUtil.captureScreenshot(BaseClass.sDriver, screenshotName);
+			String path=sUtil.getWebPageScreenshot(BaseClass.sDriver, screenshotName);
 			
 			test.addScreenCaptureFromPath(path);
 			
