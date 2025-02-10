@@ -47,7 +47,7 @@ public class ListenersImplementation implements ITestListener{
 		String methodName=result.getMethod().getMethodName();
 		System.out.println(methodName+" execution failed");
 		
-		report.log(Status.FAIL, methodName+" execution failed");
+		test.log(Status.FAIL, methodName+" execution failed");
 		
 		//capturing the screenshot of test script getting failed and attaching to report
 		
