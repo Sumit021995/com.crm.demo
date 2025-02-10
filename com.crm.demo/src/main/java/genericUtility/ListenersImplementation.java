@@ -98,6 +98,7 @@ public class ListenersImplementation implements ITestListener{
 		report.setSystemInfo("Base OS", "Windows");
 		report.setSystemInfo("Base Browser", "Chrome");
 		report.setSystemInfo("Reporter Name", "Sumit Saurav");
+		report.setSystemInfo("Reporter Name", "Sumit Saurav");
 	}
 
 	@Override
