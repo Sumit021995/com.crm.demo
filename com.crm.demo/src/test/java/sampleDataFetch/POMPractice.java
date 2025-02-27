@@ -2,7 +2,6 @@ package sampleDataFetch;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,6 +28,7 @@ public class POMPractice {
 		Thread.sleep(2000);
 		p.nameTextField.sendKeys("Saurav");
 		Thread.sleep(2000);
+		
 	}
 	
 }

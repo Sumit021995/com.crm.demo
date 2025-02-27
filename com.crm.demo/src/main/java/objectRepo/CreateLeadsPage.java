@@ -88,7 +88,7 @@ public class CreateLeadsPage
 		getWebsiteTextField().sendKeys(website);
 		getSaveBtn().click();
 	}
-	public void createLeadOperation(String firstName,String lastName,String phone,String website,String noOfEmployee,String country,String city,String state)
+	public void createLeadOperation(String firstName,String lastName,String phone,String website,String noOfEmployee,String country,String city,String state,String company)
 	{
 		getFirstNameTextField().sendKeys(firstName);
 		getLastNameTextField().sendKeys(lastName);
@@ -98,6 +98,7 @@ public class CreateLeadsPage
 		getCountryTextField().sendKeys(country);
 		getCityTextField().sendKeys(city);
 		getStateTextField().sendKeys(state);
+		getCompanyTextField().sendKeys(company);
 		getSaveBtn().click();
 	}
 }

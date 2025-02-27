@@ -30,9 +30,10 @@ public class TC_002 extends BaseClass
 		String city=eUtil.fetchingDataFromExcelFile("Leads", 5, 7);
 		String state=eUtil.fetchingDataFromExcelFile("Leads", 5, 8);
 		String website=eUtil.fetchingDataFromExcelFile("Leads", 5, 4);
+		String company=eUtil.fetchingDataFromExcelFile("Leads", 2, 3);
 	
 		CreateLeadsPage cnlp=new CreateLeadsPage(driver);
-		cnlp.createLeadOperation(fName,lName, phone, website,noOfEmployee,country, city, state);
+		cnlp.createLeadOperation(fName,lName, phone,website,noOfEmployee,country, city, state,company);
 		System.out.println("Test Execution Ended");
 	}
 
