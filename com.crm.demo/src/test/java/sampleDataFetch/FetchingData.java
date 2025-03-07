@@ -13,9 +13,9 @@ public class FetchingData {
 		String url = pUtility.getDataFromPropertiesFile("url");
 		String username = pUtility.getDataFromPropertiesFile("username");
 		String password = pUtility.getDataFromPropertiesFile("password");
-		System.out.println(url);
-		System.out.println(username);
-		System.out.println(password);
+//		System.out.println(url);
+//		System.out.println(username);
+//		System.out.println(password);
 //		WebDriver driver = new ChromeDriver();
 //		driver.get(url);
 //		String excelData = pUtility.fetchingDataFromExcelFile();
