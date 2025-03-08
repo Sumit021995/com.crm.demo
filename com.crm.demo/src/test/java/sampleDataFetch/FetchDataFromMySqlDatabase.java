@@ -1,6 +1,7 @@
 package sampleDataFetch;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -13,7 +14,7 @@ public class FetchDataFromMySqlDatabase {
 		String DBUN = pUtility.getDataFromPropertiesFile("DBUN");
 		String DBURL = pUtility.getDataFromPropertiesFile("DBURL");
 		String DBPWD = pUtility.getDataFromPropertiesFile("DBPWD");
-		DriverManager.getConnection(DBURL, DBUN, DBPWD);
+		Connection connection = DriverManager.getConnection(DBURL, DBUN, DBPWD);
 		
 		
 	}
