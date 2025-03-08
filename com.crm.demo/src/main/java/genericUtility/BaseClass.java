@@ -66,10 +66,8 @@ public class BaseClass {
 	@BeforeMethod(alwaysRun = true)
 	public void loginOperation() throws Exception
 	{
-//		String UN=pUtil.getDataFromPropertiesFile("username");
-//		String PWD=pUtil.getDataFromPropertiesFile("password");
-		String UN=dbUtil.fetchDataFromTable("User1", "username");
-		String PWD=dbUtil.fetchDataFromTable("User1", "password");
+		String UN=dbUtil.fetchDataFromTable("CommonData", 3);
+		String PWD=dbUtil.fetchDataFromTable("CommonData", 4);
 		LoginPage lp=new LoginPage(driver);
 		lp.loginToApplication(UN, PWD);
 		System.out.println("Login done successfully");
