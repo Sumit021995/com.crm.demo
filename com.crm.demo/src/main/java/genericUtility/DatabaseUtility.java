@@ -4,17 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class DatabaseUtility {
 
 	Connection con;
 	PreparedStatement ps;
+	Statement statement;
 	
 	public static void main(String[] args) throws Exception {
 		DatabaseUtility db=new DatabaseUtility();
-		db.connectToDatabase("jdbc:mysql://localhost:3306/rajat", "root", "mysql@1234");
-		String UN=db.fetchDataFromTable("Admin", "username");
-		String PWD=db.fetchDataFromTable("Admin", "password");
+		db.connectToDatabase("jdbc:mysql://localhost:3306/crmData", "root", "Infocus4999@123");
+		String UN=db.fetchDataFromTable("CommonData", 3);
+		String PWD=db.fetchDataFromTable("CommonData", 4);
 		System.out.println(UN);
 		System.out.println(PWD);
 //		db.updateDataIntoTable("admin23456", "admin23456");
@@ -43,22 +45,22 @@ public class DatabaseUtility {
 		}
 	}
 	
-	public String fetchDataFromTable(String name, String column) throws Exception
+	public String fetchDataFromTable(String tablename, int columnNo) throws Exception
 	{
-		String query="select * from credential where name=?";
-		ps = con.prepareStatement(query);
-		ps.setString(1, name);
-		ResultSet rs=ps.executeQuery();
-		while(rs.next())
+		String query="select * from "+tablename;
+		statement = con.createStatement();
+		ResultSet result = statement.executeQuery(query);
+
+		while(result.next())
 		{
-			return rs.getString(column);
+			return result.getString(columnNo);
 		}
 		return null;
 	}
 	
 	public void closeDBConnection() throws Exception
 	{
-		ps.close();
+		statement.close();
 		con.close();
 		System.out.println("DB closed");
 	}
