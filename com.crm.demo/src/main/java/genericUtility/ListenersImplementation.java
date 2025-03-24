@@ -23,7 +23,8 @@ public class ListenersImplementation implements ITestListener{
 	ExtentReports report;
 	ExtentTest test;
 	JavaUtility jUtil=new JavaUtility();
-	String dateTimeStamp=jUtil.getCalanderDetails("dd-MM-YYYY hh-mm-ss");
+	String dateTimeStamp=jUtil.getCalanderDetails("YYMMdd_hhmmss");
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal();
 	
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -32,6 +33,7 @@ public class ListenersImplementation implements ITestListener{
 		
 		//create a test
 		test = report.createTest(methodName);
+		extentTest.set(test);
 	}
 
 	@Override
@@ -39,7 +41,8 @@ public class ListenersImplementation implements ITestListener{
 		String methodName=result.getMethod().getMethodName();
 		System.out.println(methodName+" execution passed");
 		
-		test.log(Status.PASS , methodName+" execution passed");
+//		test.log(Status.PASS , methodName+" execution passed");
+		extentTest.get().log(Status.PASS , methodName+" execution passed");
 	}
 
 	@Override
@@ -47,16 +50,18 @@ public class ListenersImplementation implements ITestListener{
 		String methodName=result.getMethod().getMethodName();
 		System.out.println(methodName+" execution failed");
 		
-		test.log(Status.FAIL, methodName+" execution failed");
+//		test.log(Status.FAIL, methodName+" execution failed");
+		extentTest.get().log(Status.FAIL, result.getThrowable());
 		
 		//capturing the screenshot of test script getting failed and attaching to report
 		
 		SeleniumUtility sUtil=new SeleniumUtility();
 		String screenshotName=methodName+dateTimeStamp;
 		try {
-			String path=sUtil.getWebPageScreenshot(BaseClass.sDriver, screenshotName);
-			
-			test.addScreenCaptureFromPath(path);
+//			String path=sUtil.getWebPageScreenshot(BaseClass.sDriver, screenshotName);
+//			test.addScreenCaptureFromPath(path);
+			String path=sUtil.getWebPageScreenshotFromBase64(BaseClass.sDriver);
+			test.addScreenCaptureFromBase64String(path);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -68,7 +73,8 @@ public class ListenersImplementation implements ITestListener{
 		String methodName=result.getMethod().getMethodName();
 		System.out.println(methodName+" execution skipped");
 		
-		test.log(Status.SKIP, methodName+" execution skipped");
+//		test.log(Status.SKIP, methodName+" execution skipped");
+		extentTest.get().log(Status.SKIP, methodName+" execution skipped");
 	}
 
 	@Override
@@ -87,7 +93,7 @@ public class ListenersImplementation implements ITestListener{
 		
 		//configuration of the report
 		
-		ExtentSparkReporter reporter=new ExtentSparkReporter(".\\Extent Reports\\Report-"+dateTimeStamp+".html");
+		ExtentSparkReporter reporter=new ExtentSparkReporter(".\\Extent Reports\\Report_"+dateTimeStamp+".html");
 		reporter.config().setDocumentTitle("VTiger Testing Reports");
 		reporter.config().setReportName("VTiger");
 		reporter.config().setTheme(Theme.DARK);
@@ -98,7 +104,7 @@ public class ListenersImplementation implements ITestListener{
 		report.setSystemInfo("Base OS", "Windows");
 		report.setSystemInfo("Base Browser", "Chrome");
 		report.setSystemInfo("Reporter Name", "Sumit Saurav");
-		report.setSystemInfo("Test Engineer", "Sumit Saurav");
+//		report.setSystemInfo("Test Engineer", "Sumit Saurav");
 	}
 
 	@Override
