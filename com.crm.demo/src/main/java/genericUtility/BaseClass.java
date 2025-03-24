@@ -74,8 +74,9 @@ public class BaseClass {
 	}
 	
 	@AfterMethod(alwaysRun = true)
-	public void logoutOperation()
+	public void logoutOperation() throws InterruptedException
 	{
+		Thread.sleep(2000);
 		HomePage hp=new HomePage(driver);
 		hp.signOutOperation(driver);
 		System.out.println("Sign out done successfully");
