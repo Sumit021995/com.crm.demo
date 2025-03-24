@@ -204,6 +204,14 @@ public class SeleniumUtility {
 		return location.getAbsolutePath(); // used in Listeners
 
 	}
+	public String getWebPageScreenshotFromBase64(WebDriver driver) throws IOException
+	{
+		TakesScreenshot ts= (TakesScreenshot)driver;
+		String fileAbsolute = ts.getScreenshotAs(OutputType.BASE64);
+		
+		return fileAbsolute; // used in Listeners
+		
+	}
 	////////////******Handling Window*******/////////////
 	
 	/**
