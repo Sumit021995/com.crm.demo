@@ -110,7 +110,6 @@ public class ListenersImplementation implements ITestListener{
 	@Override
 	public void onFinish(ITestContext context) {
 		System.out.println("Suite execution finished");
-		
 		report.flush();		//generate the report
 	}
 

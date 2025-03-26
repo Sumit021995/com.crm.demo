@@ -24,6 +24,7 @@ public class BaseClass {
 	public PropertiesUtility pUtil=new PropertiesUtility();
 	public ExcelUtility eUtil=new ExcelUtility();
 	public DatabaseUtility dbUtil=new DatabaseUtility();
+	public static ThreadLocal<WebDriver> driverInstance = new ThreadLocal();
 	
 	@BeforeSuite(alwaysRun = true)
 	public void dbConnection() throws Exception
@@ -55,7 +56,8 @@ public class BaseClass {
 		{
 			driver=new ChromeDriver();
 		}
-		sDriver=driver;		//this sDriver is initialized and will be used in Listeners
+//		sDriver=driver;		//this sDriver is initialized and will be used in Listeners
+		setDriver(driver);
 		sUtil.implicitWait(driver, 15);
 		sUtil.maximizeWindow(driver);
 		String URL=pUtil.getDataFromPropertiesFile("url");
@@ -94,5 +96,13 @@ public class BaseClass {
 	{
 		dbUtil.closeDBConnection();
 		System.out.println("DB connection closed");
+	}
+	public static WebDriver getDriver()
+	{
+		return driverInstance.get();
+	}
+	public static void setDriver(WebDriver driver)
+	{
+		driverInstance.set(driver);
 	}
 }
