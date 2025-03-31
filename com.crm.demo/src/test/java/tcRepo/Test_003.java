@@ -8,7 +8,7 @@ import objectRepo.LeadsPage;
 import genericUtility.BaseClass;
 import genericUtility.ExcelUtility;
 
-public class TC_003 extends BaseClass
+public class Test_003 extends BaseClass
 {
 	@Test
 	public void leads_003() throws Exception

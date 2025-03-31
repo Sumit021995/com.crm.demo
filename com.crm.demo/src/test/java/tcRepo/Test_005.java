@@ -8,27 +8,26 @@ import objectRepo.ContactsPage;
 import objectRepo.CreateContactsPage;
 import objectRepo.HomePage;
 
-public class TC_004 extends BaseClass
+public class Test_005 extends BaseClass
 {
 	@Test
-	public void contacts_001() throws Exception
+	public void contacts_002() throws Exception
 	{
 		System.out.println("Test Exceution Started");
 		HomePage hp=new HomePage(driver);
 		hp.clickOnContactMenuBtn();
 	
-		//LeadsPage lp=new LeadsPage(driver);
 		ContactsPage cp=new ContactsPage(driver);
-		//lp.clickOnLeadsContactButton();
 		cp.clickOnCreateContactPlusIcon();
 	
 		ExcelUtility eUtil=new ExcelUtility();
-		String fName=eUtil.fetchingDataFromExcelFile("Contacts", 2, 1);
-		String lName=eUtil.fetchingDataFromExcelFile("Contacts", 2, 2);
-		String leadSource=eUtil.fetchingDataFromExcelFile("Contacts", 2, 3);
+		String fName=eUtil.fetchingDataFromExcelFile("Contacts", 5, 1);
+		String lName=eUtil.fetchingDataFromExcelFile("Contacts", 5, 2);
+		String title=eUtil.fetchingDataFromExcelFile("Contacts", 5, 3);
+		String email=eUtil.fetchingDataFromExcelFile("Contacts", 5, 4);
 		CreateContactsPage cncp=new CreateContactsPage(driver);
-		cncp.createContactOperation(fName, lName, leadSource);
+		cncp.createContactOperation(fName, lName, title, email);;
 		System.out.println("Test Execution Ended");
-		
 	}
+		
 }

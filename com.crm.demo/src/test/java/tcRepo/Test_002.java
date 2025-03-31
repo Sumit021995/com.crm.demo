@@ -11,7 +11,7 @@ import objectRepo.HomePage;
 import objectRepo.LeadsPage;
 
 @Listeners(genericUtility.ListenersImplementation.class)
-public class TC_002 extends BaseClass
+public class Test_002 extends BaseClass
 {
 	
 	@Test

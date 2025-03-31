@@ -8,7 +8,7 @@ import objectRepo.CreateLeadsPage;
 import objectRepo.HomePage;
 import objectRepo.LeadsPage;
 
-public class TC_001 extends BaseClass
+public class Test_001 extends BaseClass
 {
 	@Test
 	public void leads_001() throws Exception

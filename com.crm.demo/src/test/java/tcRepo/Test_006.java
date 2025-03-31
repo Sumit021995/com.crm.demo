@@ -8,7 +8,7 @@ import objectRepo.ContactsPage;
 import objectRepo.CreateContactsPage;
 import objectRepo.HomePage;
 
-public class TC_006 extends BaseClass
+public class Test_006 extends BaseClass
 {
 	@Test
 	public void contacts_003() throws Exception

@@ -60,8 +60,8 @@ public class ListenersImplementation implements ITestListener{
 		try {
 //			String path=sUtil.getWebPageScreenshot(BaseClass.sDriver, screenshotName);
 //			test.addScreenCaptureFromPath(path);
-			String path=sUtil.getWebPageScreenshotFromBase64(BaseClass.sDriver);
-			test.addScreenCaptureFromBase64String(path);
+			String path=sUtil.getWebPageScreenshotFromBase64(BaseClass.getDriver());
+			test.addScreenCaptureFromBase64String(path,methodName);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
