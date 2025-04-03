@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Test(failed)">
+<suite thread-count="4" parallel="classes" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="genericUtility.ListenersImplementation"/>
+  </listeners>
+  <test thread-count="4" parallel="classes" name="Test(failed)">
     <classes>
-      <class name="tcRepo.TC_001">
+      <class name="tcRepo.Test_005">
         <methods>
-          <include name="leads_001"/>
+          <include name="closeDBConnection"/>
+          <include name="dbConnection"/>
+          <include name="logoutOperation"/>
+          <include name="loginOperation"/>
+          <include name="closeBrowser"/>
+          <include name="contacts_002"/>
+          <include name="launchBrowser"/>
+        </methods>
+      </class> <!-- tcRepo.Test_005 -->
+      <class name="tcRepo.Test_006">
+        <methods>
           <include name="closeDBConnection"/>
           <include name="dbConnection"/>
           <include name="logoutOperation"/>
           <include name="loginOperation"/>
           <include name="closeBrowser"/>
           <include name="launchBrowser"/>
+          <include name="contacts_003"/>
         </methods>
-      </class> <!-- tcRepo.TC_001 -->
+      </class> <!-- tcRepo.Test_006 -->
+      <class name="tcRepo.Test_007">
+        <methods>
+          <include name="closeDBConnection"/>
+          <include name="createOrg"/>
+          <include name="dbConnection"/>
+          <include name="logoutOperation"/>
+          <include name="loginOperation"/>
+          <include name="closeBrowser"/>
+          <include name="launchBrowser"/>
+        </methods>
+      </class> <!-- tcRepo.Test_007 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import genericUtility.BaseClass;
 import genericUtility.ExcelUtility;
+import genericUtility.JavaUtility;
 import objectRepo.ContactsPage;
 import objectRepo.CreateContactsPage;
 import objectRepo.HomePage;
@@ -13,6 +14,7 @@ public class Test_006 extends BaseClass
 	@Test
 	public void contacts_003() throws Exception
 	{
+		int randomNumber = new JavaUtility().generateRandomNumber(10000);
 		System.out.println("Test Exceution Started");
 		HomePage hp=new HomePage(driver);
 		hp.clickOnContactMenuBtn();
@@ -21,12 +23,12 @@ public class Test_006 extends BaseClass
 		cp.clickOnCreateContactPlusIcon();
 	
 		ExcelUtility eUtil=new ExcelUtility();
-		String fName=eUtil.fetchingDataFromExcelFile("Contacts", 8, 1);
-		String lName=eUtil.fetchingDataFromExcelFile("Contacts", 8, 2);
-		String title=eUtil.fetchingDataFromExcelFile("Contacts", 8, 3);
-		String email=eUtil.fetchingDataFromExcelFile("Contacts", 8, 4);
-		String mailingCity=eUtil.fetchingDataFromExcelFile("Contacts", 8, 5);
-		String mailingState=eUtil.fetchingDataFromExcelFile("Contacts", 8, 6);
+		String fName=eUtil.fetchingDataFromExcelFile("Contacts", 8, 1)+randomNumber;
+		String lName=eUtil.fetchingDataFromExcelFile("Contacts", 8, 2)+randomNumber;
+		String title=eUtil.fetchingDataFromExcelFile("Contacts", 8, 4)+randomNumber;
+		String email=eUtil.fetchingDataFromExcelFile("Contacts", 8, 5);
+		String mailingCity=eUtil.fetchingDataFromExcelFile("Contacts", 8, 6)+randomNumber;
+		String mailingState=eUtil.fetchingDataFromExcelFile("Contacts", 8, 7)+randomNumber;
 		
 		CreateContactsPage cncp=new CreateContactsPage(driver);
 		cncp.createContactOperation(fName, lName, title, email, mailingCity, mailingState);

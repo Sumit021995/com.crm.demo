@@ -11,7 +11,7 @@ public class CreateContactsPage {
 	@FindBy(xpath="//input[@name='lastname']") private WebElement lastNameTextField;
 	@FindBy(xpath="//input[@name='leadsource']") private WebElement leadsourceDropdown;
 	@FindBy(id="email") private WebElement emailTextField;
-	@FindBy(xpath="//input[@name='firstname']") private WebElement titleTextField;
+	@FindBy(id="title") private WebElement titleTextField;
 	@FindBy(xpath="//input[@name='mailingcity']") private WebElement mailingCityTextField;
 	@FindBy(xpath="//input[@name='mailingstate']") private WebElement mailingStateTextField;
 	@FindBy(xpath="//input[@class='crmButton small save']") private WebElement saveBtn;

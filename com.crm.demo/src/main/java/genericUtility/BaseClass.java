@@ -58,7 +58,7 @@ public class BaseClass {
 		}
 //		sDriver=driver;		//this sDriver is initialized and will be used in Listeners
 		setDriver(driver);
-		sUtil.implicitWait(driver, 15);
+		sUtil.implicitWait(driver, 20);
 		sUtil.maximizeWindow(driver);
 		String URL=pUtil.getDataFromPropertiesFile("url");
 		sUtil.accesToApplication(driver, URL);
@@ -68,17 +68,17 @@ public class BaseClass {
 	@BeforeMethod(alwaysRun = true)
 	public void loginOperation() throws Exception
 	{
-		String UN=dbUtil.fetchDataFromTable("CommonData", 3);
-		String PWD=dbUtil.fetchDataFromTable("CommonData", 4);
+		String UN=dbUtil.fetchDataFromTable("Commondata", 3);
+		String PWD=dbUtil.fetchDataFromTable("Commondata", 4);
 		LoginPage lp=new LoginPage(driver);
 		lp.loginToApplication(UN, PWD);
 		System.out.println("Login done successfully");
 	}
 	
 	@AfterMethod(alwaysRun = true)
-	public void logoutOperation() throws InterruptedException
+	public void logoutOperation() throws Exception
 	{
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		HomePage hp=new HomePage(driver);
 		hp.signOutOperation(driver);
 		System.out.println("Sign out done successfully");

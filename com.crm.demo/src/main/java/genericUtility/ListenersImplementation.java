@@ -18,7 +18,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
  * @author Sumit Saurav
  * @version 24.11.07
  */
-public class ListenersImplementation implements ITestListener{
+public class ListenersImplementation implements ITestListener {
 
 	ExtentReports report;
 	ExtentTest test;
@@ -103,8 +103,8 @@ public class ListenersImplementation implements ITestListener{
 		report.setSystemInfo("Base URL", "http://localhost:8888");
 		report.setSystemInfo("Base OS", "Windows");
 		report.setSystemInfo("Base Browser", "Chrome");
-		report.setSystemInfo("Reporter Name", "Sumit Saurav");
-//		report.setSystemInfo("Test Engineer", "Sumit Saurav");
+//		report.setSystemInfo("Reporter Name", "Sumit Saurav");
+		report.setSystemInfo("Test Engineer", "Sumit Saurav");
 	}
 
 	@Override

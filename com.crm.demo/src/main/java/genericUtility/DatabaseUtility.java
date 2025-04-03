@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DatabaseUtility {
@@ -47,21 +48,33 @@ public class DatabaseUtility {
 	
 	public String fetchDataFromTable(String tablename, int columnNo) throws Exception
 	{
-		String query="select * from "+tablename;
-		statement = con.createStatement();
-		ResultSet result = statement.executeQuery(query);
+		PropertiesUtility pUtil = new PropertiesUtility();
+	    if (con == null || con.isClosed()) {
+	        System.out.println("⚠️ Connection lost. Re-establishing connection...");
+	        String dbURL = pUtil.getDataFromPropertiesFile("DBURL");
+	        String dbUN = pUtil.getDataFromPropertiesFile("DBUN");
+	        String dbPWD = pUtil.getDataFromPropertiesFile("DBPWD");
+	        connectToDatabase(dbURL, dbUN, dbPWD);  // Re-establish connection
+	    }
 
-		while(result.next())
-		{
-			return result.getString(columnNo);
-		}
-		return null;
+	    Statement stmt = con.createStatement();
+	    ResultSet resultSet = stmt.executeQuery("SELECT * FROM commondata");
+	    
+	    while (resultSet.next()) {
+	        return resultSet.getString(columnNo); 
+	    }
+	    return null;
 	}
 	
 	public void closeDBConnection() throws Exception
 	{
-		statement.close();
-		con.close();
-		System.out.println("DB closed");
+		try {
+	        if (con != null && !con.isClosed()) {
+	            con.close();
+	            System.out.println("✅ Database connection closed successfully.");
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("❌ Error while closing DB connection: " + e.getMessage());
+	    }
 	}
 }
